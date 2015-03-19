@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> KnockoutJs Collections </title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="content/app.css">
+</head>
+<body>
+<h2>Your seat reservations</h2>
+
+<button class="btn btn-info" data-bind="click: addSeat(reservationName(), selectedMeal()), enable: seats().length < 5"> Reserve another seat </button>
+<label for="reservationNameInput" data-bind="text: reservationNameLabel" > </label>
+<input id="reservationNameInput" data-bind="value: reservationName" />
+<label for="reservationMealSelection" data-bind="text: reservationMealLabel" > </label>
+<select id="reservationMealSelection" data-bind="options: $root.availableMeals,
+                       optionsText: 'mealName',
+                       value: selectedMeal,
+                       optionsCaption: 'Choose...'"></select>
+
+<h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="info">
+            <th>Passenger name</th>
+            <th>Meal</th>
+            <th>Surcharge</th>
+        </tr>
+    </thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: seats">
+        <!--<tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: meal().mealName"></td>
+            <td data-bind="text: meal().price"></td>
+        </tr>-->
+        <tr>
+            <td><input data-bind="value: name" /></td>
+            <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+            <td data-bind="text: formattedPrice"></td>
+            <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+<h3 data-bind="visible: totalSurcharge() > 0">
+    Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+</h3>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js" ></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> KnockoutJs Basics </title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="content/app.css">
+</head>
+<body>
+<h2> Static Bidning </h2>
+<p>First name: <strong data-bind="text: firstName">todo</strong></p>
+<p>Last name: <strong data-bind="text: lastName">todo</strong></p>
+
+<h2> Dynamic Binding </h2>
+<p>First name: <input data-bind="value: firstName" /></p>
+<p>Last name: <input data-bind="value: lastName" /></p>
+
+<p>Full name: <strong data-bind="text: fullName"></strong></p>
+
+<button data-bind="click: capitalizeLastName">Go caps</button>
+
+
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js" ></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script>
+<script src="app.js"></script>
+</body>
+</html>
